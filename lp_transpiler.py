@@ -1,8 +1,9 @@
 import os #required to evaluate file extension
 import re #required to evaluate regular expressions from latex files
+import sys #required to process number of args
 
-from sympy import sympify, latex
-from sympy.utilities.mathml import mathml to sympy
+#from sympy import sympify, latex
+#from sympy.utilities.mathml import mathml to sympy
 
 #generates a python function given the name of the function, the arguments inside the function, and an expression
 def generate_python_function(func_name, num_args, expr):
@@ -14,9 +15,11 @@ def get_input_type(file_path):
     ext = os.path.splittext(file_path)[1].lower()
     if ext in ('.mml', '.mathml'):
         #return 'mathml'
+        print("reached mml block")
         raise ValueError("MathML not yet supported.\n")
     if ext in ('.tex', '.latex'):
         return 'latex'
+    print("didn't reach latex block'")
     raise ValueError("Unsupported file type. Expected LaTeX (?.tex or ?.latex) or MathML(?.mml or ?.mathml).\n")
 
 def parse_latex(latex_str):
