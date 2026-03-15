@@ -8,4 +8,4 @@ def f(x):
 # Transpiled 1 functions from LaTeX
 
 if __name__ == "__main__":
-    print(f(float(sys.argv[1])))
+    print(f(float(sys.argv[1])*math.pi))
